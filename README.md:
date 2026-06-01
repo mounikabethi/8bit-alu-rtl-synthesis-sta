@@ -1,0 +1,71 @@
+# 8-bit ALU RTL Design, Synthesis and STA
+
+## Objective
+
+Design an 8-bit ALU in Verilog, synthesize it to a gate-level netlist,
+perform gate-level simulation, and analyze timing using Static Timing Analysis (STA).
+
+## Tools Used
+
+- Verilog HDL
+- Yosys
+- OpenSTA
+- Icarus Verilog / ModelSim
+- Nangate45 Liberty Library
+
+## Design Flow
+
+RTL Design
+    ↓
+Functional Simulation
+    ↓
+Synthesis (Yosys)
+    ↓
+Gate-Level Netlist
+    ↓
+Gate-Level Simulation
+    ↓
+Static Timing Analysis (OpenSTA)
+
+## Files
+
+### RTL
+
+- rtl/alu8.v
+
+### Testbench
+
+- tb/tb_alu8.v
+
+### Synthesis
+
+- synthesis/synth.ys
+- synthesis/alu8_netlist.v
+
+### Constraints
+
+- constraints/alu8.sdc
+
+### STA
+
+- sta/sta.tcl
+- sta/timing_report.rpt
+
+## STA Results
+
+| Metric | Value |
+|----------|--------|
+| WNS | -0.42 ns |
+| TNS | -1.15 ns |
+| Hold Slack | +0.15 ns |
+
+## Timing Violation Fixes
+
+- Pipeline insertion
+- Logic optimization
+- Re-synthesis with timing-driven optimization
+
+## Conclusion
+
+The RTL and gate-level simulations match functionally.
+STA identified a setup timing violation which can be fixed through pipelining and optimization.
